@@ -49,6 +49,10 @@ app.get("/go/npm/:package", (req, res) => {
     res.redirect(`https://npmjs.org/${req.params.package}`);
 });
 
+app.get("*", (req, res) => {
+    res.redirect("https://github.com/levvij/gitbadge");
+})
+
 const port = process.env.PORT || 7000;
 
 app.listen(port, () => {
