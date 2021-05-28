@@ -7,6 +7,7 @@ const packages = {};
 
 app.get("/npm/:package", async (req, res) => {
     const name = req.params.package;
+
     let version;
 
     if (name in packages && packages[name].loaded < new Date() + 1000 * 60 * 15) {
@@ -30,18 +31,13 @@ app.get("/npm/:package", async (req, res) => {
     <rect fill="black" x="0" y="0" width="100%" height="20"></rect>
     <rect fill="white" x="1" y="1" width="${20 + nameWidth + 10 - 2}" height="18"></rect>
 
-    <rect fill="#2CB343" x="${20 + nameWidth + 10 - 2}" y="1" width="${10 + versionWidth}" height="18"></rect>
+    <rect fill="#00894d" x="${20 + nameWidth + 10 - 2}" y="1" width="${10 + versionWidth}" height="18"></rect>
 
-    <rect fill="#CB0000" x="4" y="4" width="12" height="12"></rect>
-    <polygon fill="#FFFFFF" points="14 14 12 14 12 8 10 8 10 14 6 14 6 6 14 6"></polygon>
+    <rect fill="#cb0000" x="4" y="4" width="12" height="12"></rect>
+    <polygon fill="#fff" points="14 14 12 14 12 8 10 8 10 14 6 14 6 6 14 6"></polygon>
 
-    <text font-family="monospace" x="22.5" y="10" font-size="10" font-weight="bold" dominant-baseline="central" fill="#000000">
-        ${name}
-    </text>
-
-    <text font-family="monospace" x="${20 + nameWidth + 15 - 2}" y="10" font-size="10" font-weight="normal" dominant-baseline="central" fill="#000000">
-        ${version}
-    </text>
+    <text font-family="monospace" x="22.5" y="10" font-size="10" font-weight="bold" dominant-baseline="central" fill="#000">${name}</text>
+    <text font-family="monospace" x="${20 + nameWidth + 15 - 2}" y="10" font-size="10" font-weight="normal" dominant-baseline="central" fill="#fff">${version}</text>
 </svg>`);
 });
 
