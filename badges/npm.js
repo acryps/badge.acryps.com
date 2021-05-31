@@ -25,7 +25,7 @@ module.exports = app => {
             name,
             version,
             "#00894d",
-            `https://badge.acryps.com/go/npm/${package}`
+            `https://badge.acryps.com/go/npm/${name}`
         );
     });
     
