@@ -3,6 +3,8 @@ module.exports = (res, logo, title, value, color, link) => {
     const titleWidth = title.length * widthPerCharacter;
     const valueWidth = value && value.length * widthPerCharacter;
 
+    const systemMonospacedFont = "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace";
+
     res.header("Content-Type", "image/svg+xml");
     res.header("Cache-Control", "no-cache");
 
@@ -16,8 +18,8 @@ module.exports = (res, logo, title, value, color, link) => {
         
             ${logo}
         
-            <text font-family="ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace" x="22.5" y="10" font-size="10" font-weight="bold" dominant-baseline="central" fill="#000">${title}</text>
-            ${value ? `<text font-family="monospace" x="${20 + titleWidth + 15 - 2}" y="10" font-size="10" font-weight="normal" dominant-baseline="central" fill="#fff">${value}</text>` : ""}
+            <text font-family="${systemMonospacedFont}" x="22.5" y="10" font-size="10" font-weight="bold" dominant-baseline="central" fill="#000">${title}</text>
+            ${value ? `<text font-family="${systemMonospacedFont}" x="${20 + titleWidth + 15 - 2}" y="10" font-size="10" font-weight="normal" dominant-baseline="central" fill="#fff">${value}</text>` : ""}
         </a>
     </svg>`);
 };
