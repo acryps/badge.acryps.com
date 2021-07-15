@@ -3,8 +3,10 @@ module.exports = (res, logo, title, value, color, link) => {
     const titleWidth = title.length * widthPerCharacter;
     const valueWidth = value && value.length * widthPerCharacter;
 
-    res.header("content-type", "image/svg+xml");
-        res.end(`<?xml version="1.0" encoding="UTF-8" ?>
+    res.header("Content-Type", "image/svg+xml");
+    res.header("Cache-Control", "no-cache");
+
+    res.end(`<?xml version="1.0" encoding="UTF-8" ?>
     <svg version="1.1" viewBox="0 0 ${20 + titleWidth + (value ? 15 + valueWidth + 4 : 10)} 20" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <a xlink:href="${link}">
             <rect fill="black" x="0" y="0" width="100%" height="20"></rect>
